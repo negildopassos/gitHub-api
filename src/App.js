@@ -7,18 +7,24 @@ import GithubProvider from "./providers/github-provider";
 
 
 const App = () => {
+  const { githubState } = useGithub();
   return (
-    <main>
-      <GithubProvider >
-      <ResetCSS />
-      <Layout>
-        <Profile />
-        <Repositories />
-
-      </Layout>
-      </GithubProvider>
-
-    </main>
+    <Layout>
+      {githubState.hasUser ? (
+        <>
+          {githubState.loading ? (
+            <p>Loading</p>
+          ) : (
+            <>
+              <Profile />
+              <Repositories />
+            </>
+          )}
+        </>
+      ) : (
+        <NoSearch />
+      )}
+    </Layout>
   );
 }
 
