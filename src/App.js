@@ -1,10 +1,9 @@
 import React from "react";
-import Layout from "./components/layout"
+import Layout from "./components/layout";
+import NoSearch from "./components/no-search";
 import Profile from "./components/profile";
-import { ResetCSS } from "./components/global/resetCSS";
 import Repositories from "./components/repositories";
-import GithubProvider from "./providers/github-provider";
-
+import useGithub from "./hooks/github-hooks";
 
 const App = () => {
   const { githubState } = useGithub();
@@ -26,6 +25,6 @@ const App = () => {
       )}
     </Layout>
   );
-}
+};
 
 export default App;
